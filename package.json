@@ -2,7 +2,7 @@
   "name": "desktop-inventoring-app",
   "version": "0.0.1",
   "description": "",
-  "main": "./target/index.js",
+  "main": "./dist/main/main.js",
   "scripts": {
     "build": "tsc",
     "start": "npm run build && electron ."

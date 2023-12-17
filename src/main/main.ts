@@ -2,10 +2,8 @@ import {app, ipcMain, BrowserWindow} from 'electron';
 
 let mainWindow : BrowserWindow
 
-app.on("ready", createWindows);
-
 function createWindows(): void{
-
+    
     mainWindow = new BrowserWindow({
         width: 900, height: 600,
         webPreferences: {
@@ -14,6 +12,15 @@ function createWindows(): void{
         show: false
     });
 
-    mainWindow.loadFile("./index.html")
+    mainWindow.loadFile("./src/renderer/index.html")
     mainWindow.on("ready-to-show", ()=> mainWindow.show())
 }
+
+app.on("ready", createWindows)
+
+
+ipcMain.on('print', (event, arg) => {
+        console.log(arg);
+    }
+);
+
